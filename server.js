@@ -11,36 +11,39 @@ console.log(':: nonton-arc ::');
 console.log('NODE_ENV: %s\n', process.env.NODE_ENV);
 
 // Load components
-var express = require('express'),
+var	fs		= require('fs'),
+	path 	= require('path'),
+	express = require('express'),
 	app     = express(),
 	http    = require('http'),
 	server  = http.createServer(app),
 	config  = require('config'),
 
+	// Load configured app components
 	winston = require('./app/components/winston.js'),
-	knex	= require('./app/components/knex.js');
+	knex	= require('./app/components/knex.js'),
 
-// Load application parts
-winston.log('verbose', 'Loading application parts...');
-/*var	models       = loader.loadDirectory('models', { bookshelf: bookshelf }),
-	controllers  = loader.loadDirectory('controllers', { models: models, validators: validators, helpers: helpers }),
-	routes       = loader.loadDirectory('routes', { controllers: controllers, sessions: sessions });*/
+	// Set constants
+	routeDirectory = path.join(__dirname, 'app/routes');
 
 // Apply global Express middleware
 winston.log('verbose', 'Using Express static middleware...');
 app.use('/static', express.static('public'));
 
-// Apply routes
-winston.log('verbose', 'Applying routes...');
-/*for (var routerName in routes) {
-	if (routes.hasOwnProperty(routerName)) {
-		var router = routes[routerName];
+// Load and apply routes
+winston.log('verbose', 'Loading and applying routes...');
+fs.readdirSync(routeDirectory).forEach(function(file){
+	var routerPath = path.join(routeDirectory, file);
+	if(path.extname(routerPath) === '.js'){
+		winston.log('verbose', routerPath);
+		var router = require(routerPath);
+		var routerName = path.basename(routerPath, path.extname(routerPath));
 		if(!router.baseRoute) router.baseRoute = '/' + routerName;
 		var completeRoute = config.get('routePrefix') + router.baseRoute;
-		winston.log('verbose', 'Using %s for %s', routerName, completeRoute);
+		winston.log('verbose', 'Using route %s...', completeRoute);
 		app.use(completeRoute, router);
 	}
-}*/
+});
 
 // Apply Express error and 404 handler
 // TODO:
