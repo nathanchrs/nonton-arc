@@ -33,7 +33,8 @@ app.set('view engine', 'pug');
 
 // Apply global Express middleware
 winston.log('verbose', 'Using Express static middleware...');
-app.use('/static', express.static('public'));
+app.use('/public', express.static('public'));
+app.use('/assets', express.static('bower_components'));
 
 // Load and apply routes
 winston.log('verbose', 'Loading and applying routes...');
