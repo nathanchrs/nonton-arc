@@ -1,0 +1,35 @@
+{
+  "name": "nonton-arc",
+  "version": "0.0.1",
+  "description": "ARC 2016",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathanchrs/nonton-arc.git"
+  },
+  "keywords": [
+    "ARC",
+    "streaming",
+    "film",
+    "movie",
+    "nonton"
+  ],
+  "author": "ARC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nathanchrs/nonton-arc/issues"
+  },
+  "homepage": "https://github.com/nathanchrs/nonton-arc#readme",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "config": "^1.21.0",
+    "express": "^4.14.0",
+    "helmet": "^2.2.0",
+    "knex": "^0.12.1",
+    "mysql": "^2.11.1",
+    "winston": "^2.2.0"
+  }
+}
