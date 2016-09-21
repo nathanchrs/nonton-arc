@@ -24,7 +24,12 @@ var	fs		= require('fs'),
 	knex	= require('./app/components/knex.js'),
 
 	// Set constants
-	routeDirectory = path.join(__dirname, 'app/routes');
+	routeDirectory 	= path.join(__dirname, 'app/routes'),
+	viewDirectory	= path.join(__dirname, 'app/views');
+
+// Apply global Express settings
+app.set('views', viewDirectory);
+app.set('view engine', 'pug');
 
 // Apply global Express middleware
 winston.log('verbose', 'Using Express static middleware...');
