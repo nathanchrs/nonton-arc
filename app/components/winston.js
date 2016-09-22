@@ -4,12 +4,12 @@ var winston = require('winston');
 var config = require('config');
 
 winston.addColors({
-	error: 'red',
-	warn: 'yellow',
-	info: 'cyan',
-	verbose: 'grey',
-	debug: 'blue',
-	silly: 'magenta'
+  error: 'red',
+  warn: 'yellow',
+  info: 'cyan',
+  verbose: 'grey',
+  debug: 'blue',
+  silly: 'magenta'
 });
 
 // Re-apply transport to update settings
