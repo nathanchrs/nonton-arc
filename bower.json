@@ -1,0 +1,31 @@
+{
+  "name": "nonton-arc",
+  "description": "ARC 2016",
+  "main": "server.js",
+  "authors": [
+    "ARC"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "ARC",
+    "streaming",
+    "film",
+    "movie",
+    "nonton"
+  ],
+  "homepage": "https://github.com/nathanchrs/nonton-arc",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "materialize": "^0.97.7",
+    "material-design-icons": "https://github.com/google/material-design-icons.git",
+    "masonry": "^4.1.1",
+    "video.js": "^5.13.0"
+  }
+}
