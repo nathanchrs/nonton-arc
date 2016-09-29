@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "lint": "semistandard",
-    "test": "semistandard"
+    "test": "semistandard",
+    "build-css": "node-sass ./app/views/styles/nonton-arc.scss ./public/dist/style.min.css --output-style=compressed",
+    "build": "npm run build-css"
   },
   "repository": {
     "type": "git",
@@ -35,6 +37,7 @@
     "winston": "^2.2.0"
   },
   "devDependencies": {
+    "node-sass": "^3.10.0",
     "semistandard": "^9.0.0"
   }
 }

@@ -1,126 +1,8 @@
 extends layouts/basic.pug
 
-block append styles
-  style.
-
-    nav {
-      padding: 0 12px;
-    }
-
-    nav a.button-collapse {
-      display: initial;
-    }
-
-    .container-fluid {
-      margin: 32px 5% 0 5%;
-    }
-
-    .grid {
-      margin: 0 auto;
-    }
-
-    .grid-item {
-      margin: 5px 15px;
-    }
-
-    .card {
-      width: 240px;
-    }
-
-    .card-image {
-      background-color: gray;
-      overflow: hidden;
-      height: 300px;
-    }
-
-    .card-image .card-title {
-      width: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .card > .btn.activator {
-      width: 100%;
-      border-radius: 0;
-    }
-
-    i.material-icons {
-      vertical-align: bottom;
-    }
-
-    .search-field {
-      position: relative;
-    }
-
-    .search-field button[type="submit"] {
-      position: absolute;
-      top: 6px;
-      right: 0;
-      padding: 0 8px;
-      line-height: 1;
-    }
-
-    #sidebar .collapsible-header {
-      padding: 0 32px;
-    }
-
-    #sidebar .collapsible-body a {
-      padding: 0 32px 0 46px;
-    }
-
-    .footer {
-      text-align: center;
-    }
-
-    .sidebar-logo {
-      text-align: center;
-      padding: 20px;
-    }
-
 block content
 
-  ul.side-nav#sidebar
-    li.sidebar-logo
-      i.material-icons.large movie
-
-    li.active
-      a.waves-effect.waves-teal(href='#') Title
-    li.no-padding
-      ul.collapsible.collapsible-accordion
-        li
-          a.collapsible-header.waves-effect.waves-teal(href='#') Genre
-          div.collapsible-body
-            ul
-              li
-                a(href='#') Scifi
-              li
-                a(href='#') Comedy
-              li
-                a(href='#') Action
-              li
-                a(href='#') Drama
-              li
-                a(href='#') Anime
-      ul.collapsible.collapsible-accordion
-        li
-          a.collapsible-header.waves-effect.waves-teal(href='#') Year
-          div.collapsible-body
-            ul
-              li
-                a(href='#') 2012
-              li
-                a(href='#') 2013
-              li
-                a(href='#') 2014
-              li
-                a(href='#') 2015
-              li
-                a(href='#') 2016
-
-  nav
-    div.nav-wrapper
-      a.brand-logo.center(href='#') #[i.material-icons movie]
-      a.button-collapse(href='#' data-activates='sidebar') #[i.material-icons menu]
-      
+  +navbar('genre-scifi')
 
   div.container-fluid
    
@@ -131,7 +13,7 @@ block content
             input#search(name='search' type='search' placeholder='Search')
             button.btn-flat.waves-effect.waves-light(type='submit') #[span.material-icons search]
 
-        ul.pagination(style='text-align: center;')
+        ul.pagination.center
           li.disabled
             a(href='#') #[i.material-icons chevron_left]
           li.active
@@ -151,12 +33,12 @@ block content
       div.grid
 
         div.grid-item
-          div.card
-            a(href='#')
+          div.card.series
+            a(href='/video')
               div.card-image
                 img(src='/public/img/themartian.jpg')
                 span.card-title The Martian
-            div.btn.waves-effect.waves-light.grey.darken-4.activator(href='#') More info #[i.material-icons open_in_browser]
+            div.btn.waves-effect.waves-light.activator(href='#') More info #[i.material-icons open_in_browser]
             div.card-reveal
               span.card-title The Martian #[i.material-icons.right close]
               p.
@@ -164,12 +46,12 @@ block content
                 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
             
         div.grid-item
-          div.card
+          div.card.series
             a(href='#')
               div.card-image
                 img(src='/public/img/interstellar.jpg')
                 span.card-title Interstellar
-            div.btn.waves-effect.waves-light.grey.darken-4.activator(href='#') More info #[i.material-icons open_in_browser]
+            div.btn.waves-effect.waves-light.activator(href='#') More info #[i.material-icons open_in_browser]
             div.card-reveal
               span.card-title Interstellar #[i.material-icons.right close]
               p.
@@ -177,12 +59,12 @@ block content
                 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
 
         div.grid-item
-          div.card
+          div.card.series
             a(href='#')
               div.card-image
                 img(src='/public/img/kiminonawa.jpg')
                 span.card-title Kimi no Na Wa
-            div.btn.waves-effect.waves-light.grey.darken-4.activator(href='#') More info #[i.material-icons open_in_browser]
+            div.btn.waves-effect.waves-light.activator(href='#') More info #[i.material-icons open_in_browser]
             div.card-reveal
               span.card-title Kimi no Na Wa #[i.material-icons.right close]
               p.
@@ -190,12 +72,12 @@ block content
                 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
 
         div.grid-item
-          div.card
+          div.card.series
             a(href='#')
               div.card-image
                 img(src='/public/img/preview.jpg')
                 span.card-title Twenty Thousand Leagues Under the Sea
-            div.btn.waves-effect.waves-light.grey.darken-4.activator(href='#') More info #[i.material-icons open_in_browser]
+            div.btn.waves-effect.waves-light.activator(href='#') More info #[i.material-icons open_in_browser]
             div.card-reveal
               span.card-title Twenty Thousand Leagues Under the Sea #[i.material-icons.right close]
               p.
@@ -203,12 +85,12 @@ block content
                 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
 
         div.grid-item
-          div.card
+          div.card.series
             a(href='#')
               div.card-image
                 img(src='/public/img/interstella.jpg')
                 span.card-title Interstellar
-            div.btn.waves-effect.waves-light.grey.darken-4.activator(href='#') More info #[i.material-icons open_in_browser]
+            div.btn.waves-effect.waves-light.activator(href='#') More info #[i.material-icons open_in_browser]
             div.card-reveal
               span.card-title Interstellar #[i.material-icons.right close]
               p.
@@ -216,12 +98,12 @@ block content
                 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
 
         div.grid-item
-          div.card
+          div.card.series
             a(href='#')
               div.card-image
                 img(src='/public/img/kiminonawa.jpg')
                 span.card-title Kimi no Na Wa
-            div.btn.waves-effect.waves-light.grey.darken-4.activator(href='#') More info #[i.material-icons open_in_browser]
+            div.btn.waves-effect.waves-light.activator(href='#') More info #[i.material-icons open_in_browser]
             div.card-reveal
               span.card-title Kimi no Na Wa #[i.material-icons.right close]
               p.
@@ -229,7 +111,7 @@ block content
                 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
 
     div.row
-      ul.pagination(style='text-align: center;')
+      ul.pagination.center
         li.disabled
           a(href='#') #[i.material-icons chevron_left]
         li.active
@@ -247,17 +129,21 @@ block content
 
     div.row
       div.divider
-      div.footer
+      div.footer.center
         p ARC 2016
 
 block append scripts
+
   script(type='text/javascript' src='/assets/masonry/dist/masonry.pkgd.min.js')
   script.
+
+    // Initialize Masonry
     var elem = document.querySelector('.grid');
     var msnry = new Masonry( elem, {
       itemSelector: '.grid-item',
       fitWidth: true
     });
 
-   $(".button-collapse").sideNav();
-   $(".collapsible").collapsible();
+    // Initialize navbar-sidebar
+    $(".button-collapse").sideNav();
+    $(".collapsible").collapsible();

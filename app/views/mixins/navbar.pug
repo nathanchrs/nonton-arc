@@ -1,0 +1,44 @@
+mixin navbar(activeElement)
+
+  ul.side-nav#sidebar
+    li.sidebar-logo
+      i.material-icons.large movie
+
+    li(class= activeElement == 'title' ? 'active' : '')
+      a.waves-effect(href='/') Title
+    li.no-padding
+      ul.collapsible.collapsible-accordion
+        li
+          a.collapsible-header.waves-effect(href='#') Genre
+          div.collapsible-body
+            ul
+              li(class= activeElement == 'genre-scifi' ? 'active' : '')
+                a(href='#') Scifi
+              li(class= activeElement == 'genre-comedy' ? 'active' : '')
+                a(href='#') Comedy
+              li(class= activeElement == 'genre-action' ? 'active' : '')
+                a(href='#') Action
+              li(class= activeElement == 'genre-drama' ? 'active' : '')
+                a(href='#') Drama
+              li(class= activeElement == 'genre-anime' ? 'active' : '')
+                a(href='#') Anime
+      ul.collapsible.collapsible-accordion
+        li
+          a.collapsible-header.waves-effect(href='#') Year
+          div.collapsible-body
+            ul
+              li(class= activeElement == 'year-2012' ? 'active' : '')
+                a(href='#') 2012
+              li(class= activeElement == 'year-2013' ? 'active' : '')
+                a(href='#') 2013
+              li
+                a(href='#') 2014
+              li
+                a(href='#') 2015
+              li
+                a(href='#') 2016
+
+  nav
+    div.nav-wrapper
+      a.brand-logo.center(href='/') #[i.material-icons movie]
+      a.button-collapse(href='#' data-activates='sidebar') #[i.material-icons menu]
