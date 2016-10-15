@@ -8,6 +8,7 @@ exports.up = function (knex, Promise) {
       table.integer('year');
       table.string('genre');
       table.string('synopsis');
+      table.string('posterPath');
     }),
 
     knex.schema.createTable('episodes', function (table) {
@@ -16,7 +17,7 @@ exports.up = function (knex, Promise) {
       table.string('title');
       table.dateTime('releaseDate');
       table.string('description');
-      table.string('path');
+      table.string('videoPath');
     })
 
   ]);

@@ -7,7 +7,7 @@ Video streaming site - ARC 2016.
 ## Setup for Development
 
 1. Clone the Git repository
-2. `npm install`
+2. `npm install`, then `npm install knex -g`
 3. Create an empty MySQL/MariaDB database
 4. Edit configurations in `config` to match local environment and DB
 5. `knex migrate:latest` to make DB tables
