@@ -13,6 +13,7 @@ exports.up = function (knex, Promise) {
 
     knex.schema.createTable('episodes', function (table) {
       table.increments('id').primary();
+      table.integer('seriesId');
       table.integer('order');
       table.string('title');
       table.dateTime('releaseDate');
