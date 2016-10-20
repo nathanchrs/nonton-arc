@@ -29,8 +29,12 @@ router.get('/watch/:seriesId(\\d+)', function (req, res) {
     .then(function (series) {
       return knex.select('id', 'title', 'releaseDate', 'description', 'videoPath').from('episodes').where('seriesId', series.id).orderBy('order', 'asc')
         .then(function (episodes) {
-          console.log(episodes);
-          res.render('watch', { series: series, episodes: episodes });
+          // currentEpisodeIndex defaults to the first episode
+          var currentEpisodeIndex = 0;
+          if (req.query.ep != null && typeof req.query.ep === 'number' && req.query.ep >= 0 && req.query.ep < episodes.length) {
+            currentEpisodeIndex = req.query.ep;
+          }
+          res.render('watch', { series: series, episodes: episodes, currentEpisodeIndex: currentEpisodeIndex });
         });
     })
     .catch(function (err) {

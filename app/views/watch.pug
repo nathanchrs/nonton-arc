@@ -11,43 +11,25 @@ block content
     div.col.l9.m12.s12
       div.video-js-container
         video.video-js.vjs-big-play-centered.vjs-fill(controls preload='auto' poster='/public/img/themartian.jpg' data-setup='{}')
-          source(src='/public/test.mp4')
+          source(src= episodes[currentEpisode].videoPath)
           p.vjs-no-js.
             To view this video please enable JavaScript, and consider upgrading to a web browser that #[a(href='http://videojs.com/html5-video-support/' target='_blank')] supports HTML5 video
 
     div.col.l3.m12.s12
       div.collection
-        a.collection-item.active(href='#') Episode 1 #[span.badge 12:34]
-        a.collection-item(href='#') Episode 2
-        a.collection-item(href='#') Episode 3
-        a.collection-item(href='#') Episode 1 #[span.badge 12:34]
-        a.collection-item(href='#') Episode 2
-        a.collection-item(href='#') Episode 3
-        a.collection-item(href='#') Episode 1 #[span.badge 12:34]
-        a.collection-item(href='#') Episode 2
-        a.collection-item(href='#') Episode 3
-        a.collection-item(href='#') Episode 1 #[span.badge 12:34]
-        a.collection-item(href='#') Episode 2
-        a.collection-item(href='#') Episode 3
-        a.collection-item(href='#') Episode 1 #[span.badge 12:34]
-        a.collection-item(href='#') Episode 2
-        a.collection-item(href='#') Episode 3
-        a.collection-item(href='#') Episode 1 #[span.badge 12:34]
-        a.collection-item(href='#') Episode 2
-        a.collection-item(href='#') Episode 3
+        each episode, episodeIndex in episodes
+          - var activeEpisodeClass = (episode.id == episodes[currentEpisodeIndex].id ? 'active' : '');
+          a.collection-item(href='/watch/' + series.id + '?ep=' + episodeIndex, class= activeEpisodeClass) #{episode.title}
 
   div.container
 
     div.row
       div.col.s12
-        h1.video-title The Martian
+        h1.video-title= series.title
 
     div.row
-
       div.col.s12
-        p.
-          Where does it come from?
-          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+        p= series.synopsis
 
     div.row
       div.divider
